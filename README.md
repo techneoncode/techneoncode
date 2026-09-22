@@ -1,6 +1,15 @@
 # 💫 About Me
 
-### 👨‍💻 EPITECH Student — Promotion 2031
+<table>
+  <tr>
+    <td valign="middle">
+      <img src="./assets/epitech.svg" width="180" alt="Epitech">
+    </td>
+    <td valign="middle">
+      <strong>🎓 Student — Promotion 2031</strong>
+    </td>
+  </tr>
+</table>
 
 * 🎂 **18 years old**
 * 📍 Based in **Strasbourg, France**
