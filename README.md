@@ -1,16 +1,18 @@
-## Hi there 👋
+# 💫 About Me
 
-<!--
-**techneoncode/techneoncode** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+### 👨‍💻 EPITECH Student — Promotion 2031
 
-Here are some ideas to get you started:
+* 🎂 **18 years old**
+* 📍 Based in **Strasbourg, France**
+* 💻 Programming since the age of **11**
+* 🧠 Always learning, experimenting new things
+* 🛡️ Interested in **Cybersecurity** and aiming to specialize in this field
+* 🧩 Curious and **multi-disciplinary**
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+### 🟢 Comfortable with
+
+[![My Skills](https://skillicons.dev/icons?i=python,js,ts,html,css,react)](https://skillicons.dev)
+
+### 🔵 Currently improving
+
+[![My Skills](https://skillicons.dev/icons?i=cpp,cs,bash,dotnet)](https://skillicons.dev)
