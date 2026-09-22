@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+    width="700"
+    height="150"
+    viewBox="0 0 700 150">
+
+  <rect
+    width="700"
+    height="150"
+    rx="16"
+    fill="#0d1117"/>
+
+  <text
+    x="40"
+    y="38"
+    font-family="Arial, sans-serif"
+    font-size="20"
+    font-weight="700"
+    fill="#f0f6fc">
+    🎓 Engineering Degree Progress
+  </text>
+
+  <text
+    x="40"
+    y="62"
+    font-family="Arial, sans-serif"
+    font-size="13"
+    fill="#8b949e">
+    EPITECH · Promotion 2031
+  </text>
+
+  <rect
+    x="40"
+    y="82"
+    width="620"
+    height="24"
+    rx="12"
+    fill="#21262d"/>
+
+  <rect
+    x="40"
+    y="82"
+    width="7.26"
+    height="24"
+    rx="12"
+    fill="#58a6ff"/>
+
+  <text
+    x="660"
+    y="100"
+    text-anchor="end"
+    font-family="Arial, sans-serif"
+    font-size="14"
+    font-weight="700"
+    fill="#f0f6fc">
+    1.17%
+  </text>
+
+  <text
+    x="40"
+    y="130"
+    font-family="Arial, sans-serif"
+    font-size="12"
+    fill="#8b949e">
+    September 2026
+  </text>
+
+  <text
+    x="660"
+    y="130"
+    text-anchor="end"
+    font-family="Arial, sans-serif"
+    font-size="12"
+    fill="#8b949e">
+    July 2031
+  </text>
+
+</svg>
