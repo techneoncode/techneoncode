@@ -3,7 +3,7 @@
 <table>
   <tr>
     <td valign="middle">
-      <img src="./assets/epitech.svg" width="180" alt="Epitech">
+      <img src="./assets/epitech.svg" width="460" alt="Epitech">
     </td>
     <td valign="middle">
       <strong>🎓 Student — Promotion 2031</strong>
