@@ -2,7 +2,7 @@ name: Update studies progress
 
 on:
   schedule:
-    - cron: "0 0 * * *"
+    - cron: "15 22 * * *"
 
   workflow_dispatch:
 
