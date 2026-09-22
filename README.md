@@ -22,6 +22,6 @@
 
 [![My Skills](https://skillicons.dev/icons?i=python,java,js,ts,html,css,react)](https://skillicons.dev)
 
-### 🔵 Currently improving
+### 🔵 Currently learning and improving
 
-[![My Skills](https://skillicons.dev/icons?i=cpp,cs,bash,dotnet)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=c,cpp,cs,bash,dotnet)](https://skillicons.dev)
