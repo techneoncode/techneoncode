@@ -3,13 +3,14 @@
 <table>
   <tr>
     <td valign="middle">
-      <img src="./assets/epitech.svg" width="460" alt="Epitech">
+      <img src="./assets/epitech.svg" width="180" alt="Epitech">
     </td>
     <td valign="middle">
-      <strong>🎓 Student — Promotion 2031</strong>
+      <img src="./assets/studies-progress.svg" width="500" alt="Engineering Degree">
     </td>
   </tr>
 </table>
+
 
 * 🎂 **18 years old**
 * 📍 Based in **Strasbourg, France**
