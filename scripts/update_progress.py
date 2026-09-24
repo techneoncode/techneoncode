@@ -1,104 +1,186 @@
 from datetime import date
+from pathlib import Path
+import xml.etree.ElementTree as ET
+import html
 
-START_DATE = date(2026, 9, 1)
-END_DATE = date(2031, 7, 31)
+
+# --------------------------------------------------
+# Configuration
+# --------------------------------------------------
+
+SCHOOL_YEAR_START_MONTH = 9
+SCHOOL_YEAR_START_DAY = 1
+
+LOGO_PATH = Path("assets/epitech.svg")
+OUTPUT_PATH = Path("assets/studies-progress.svg")
+
+SVG_WIDTH = 700
+SVG_HEIGHT = 180
+
+LOGO_WIDTH = 220
+LOGO_HEIGHT = 75
+
+BAR_X = 70
+BAR_Y = 105
+BAR_WIDTH = 560
+BAR_HEIGHT = 22
+
+
+# --------------------------------------------------
+# School year calculation
+# --------------------------------------------------
 
 today = date.today()
 
-total_days = (END_DATE - START_DATE).days
-elapsed_days = (today - START_DATE).days
+# September -> December:
+# current school year = current_year / current_year + 1
+#
+# January -> August:
+# current school year = current_year - 1 / current_year
+if today.month >= SCHOOL_YEAR_START_MONTH:
+    school_year_start = today.year
+else:
+    school_year_start = today.year - 1
 
-progress = max(0, min(1, elapsed_days / total_days))
+school_year_end = school_year_start + 1
+
+start_date = date(
+    school_year_start,
+    SCHOOL_YEAR_START_MONTH,
+    SCHOOL_YEAR_START_DAY,
+)
+
+end_date = date(
+    school_year_end,
+    SCHOOL_YEAR_START_MONTH,
+    SCHOOL_YEAR_START_DAY,
+)
+
+total_days = (end_date - start_date).days
+elapsed_days = (today - start_date).days
+
+progress = max(0.0, min(1.0, elapsed_days / total_days))
 percentage = progress * 100
 
-width, height = 700, 150
+school_year_label = f"{school_year_start} — {school_year_end}"
 
-bar_x = 40
-bar_y = 82
-bar_w = 620
-bar_h = 24
 
-progress_w = max(0, bar_w * progress)
+# --------------------------------------------------
+# Load Epitech logo and extract its contents
+# --------------------------------------------------
 
-svg = f'''<svg xmlns="http://www.w3.org/2000/svg"
-    width="{width}"
-    height="{height}"
-    viewBox="0 0 {width} {height}">
+if not LOGO_PATH.exists():
+    raise FileNotFoundError(f"Logo not found: {LOGO_PATH}")
 
-  <rect
-    width="{width}"
-    height="{height}"
-    rx="16"
-    fill="#0d1117"/>
+tree = ET.parse(LOGO_PATH)
+root = tree.getroot()
 
-  <text
-    x="40"
-    y="38"
-    font-family="Arial, sans-serif"
-    font-size="20"
-    font-weight="700"
-    fill="#f0f6fc">
-    🎓 Engineering Degree Progress
-  </text>
+viewbox = root.get("viewBox")
 
-  <text
-    x="40"
-    y="62"
-    font-family="Arial, sans-serif"
-    font-size="13"
-    fill="#8b949e">
-    EPITECH · Promotion 2031
-  </text>
+if not viewbox:
+    width = root.get("width")
+    height = root.get("height")
 
-  <rect
-    x="{bar_x}"
-    y="{bar_y}"
-    width="{bar_w}"
-    height="{bar_h}"
-    rx="12"
-    fill="#21262d"/>
+    if not width or not height:
+        raise ValueError(
+            "The Epitech SVG must contain either a viewBox "
+            "or width/height attributes."
+        )
 
-  <rect
-    x="{bar_x}"
-    y="{bar_y}"
-    width="{progress_w:.2f}"
-    height="{bar_h}"
-    rx="12"
-    fill="#58a6ff"/>
+    viewbox = f"0 0 {width} {height}"
 
-  <text
-    x="{width - 40}"
-    y="100"
-    text-anchor="end"
-    font-family="Arial, sans-serif"
-    font-size="14"
-    font-weight="700"
-    fill="#f0f6fc">
-    {percentage:.2f}%
-  </text>
+logo_children = "\n".join(
+    ET.tostring(child, encoding="unicode")
+    for child in root
+)
 
-  <text
-    x="40"
-    y="130"
-    font-family="Arial, sans-serif"
-    font-size="12"
-    fill="#8b949e">
-    September 2026
-  </text>
 
-  <text
-    x="{width - 40}"
-    y="130"
-    text-anchor="end"
-    font-family="Arial, sans-serif"
-    font-size="12"
-    fill="#8b949e">
-    July 2031
-  </text>
+# --------------------------------------------------
+# Progress bar
+# --------------------------------------------------
 
-</svg>'''
+progress_width = BAR_WIDTH * progress
 
-with open("assets/studies-progress.svg", "w", encoding="utf-8") as file:
-    file.write(svg)
+# Avoid creating a bar with width 0 that can sometimes
+# behave oddly in SVG renderers.
+if progress_width < 1:
+    progress_width = 0
 
-print(f"Progress: {percentage:.2f}%")
+
+# --------------------------------------------------
+# Generate SVG
+# --------------------------------------------------
+
+svg = f'''<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="{SVG_WIDTH}"
+    height="{SVG_HEIGHT}"
+    viewBox="0 0 {SVG_WIDTH} {SVG_HEIGHT}">
+
+    <!-- Epitech logo -->
+    <svg
+        x="{(SVG_WIDTH - LOGO_WIDTH) / 2}"
+        y="5"
+        width="{LOGO_WIDTH}"
+        height="{LOGO_HEIGHT}"
+        viewBox="{html.escape(viewbox, quote=True)}"
+        preserveAspectRatio="xMidYMid meet">
+        {logo_children}
+    </svg>
+
+    <!-- Progress bar -->
+    <rect
+        x="{BAR_X}"
+        y="{BAR_Y}"
+        width="{BAR_WIDTH}"
+        height="{BAR_HEIGHT}"
+        rx="{BAR_HEIGHT / 2}"
+        fill="#21262d"/>
+
+    <rect
+        x="{BAR_X}"
+        y="{BAR_Y}"
+        width="{progress_width:.2f}"
+        height="{BAR_HEIGHT}"
+        rx="{BAR_HEIGHT / 2}"
+        fill="#58a6ff"/>
+
+    <!-- Percentage -->
+    <text
+        x="{SVG_WIDTH / 2}"
+        y="143"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="16"
+        font-weight="700"
+        fill="#58a6ff">
+        {percentage:.2f}%
+    </text>
+
+    <!-- School year -->
+    <text
+        x="{SVG_WIDTH / 2}"
+        y="165"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="13"
+        fill="#8b949e">
+        {school_year_label}
+    </text>
+
+</svg>
+'''
+
+
+# --------------------------------------------------
+# Write file
+# --------------------------------------------------
+
+OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
+OUTPUT_PATH.write_text(svg, encoding="utf-8")
+
+print(
+    f"School year: {school_year_label} | "
+    f"Date: {today} | "
+    f"Progress: {percentage:.2f}%"
+)
