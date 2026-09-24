@@ -1,15 +1,7 @@
 # 💫 About Me
 
-<table>
-  <tr>
-    <td valign="middle">
-      <img src="./assets/epitech.svg" width="180" alt="Epitech">
-    </td>
-    <td valign="middle">
-      <img src="./assets/studies-progress.svg" width="500" alt="Engineering Degree">
-    </td>
-  </tr>
-</table>
+<br/>
+<img src="./assets/studies-progress.svg" width="600" alt="Engineering Degree">
 
 
 * 🎂 **18 years old**
