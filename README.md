@@ -9,7 +9,7 @@
 
 ### 🟢 Comfortable with
 
-[![My Skills](https://skillicons.dev/icons?i=python,java,js,ts,html,css,react)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=python,java,js,ts,html,react)](https://skillicons.dev)
 
 ### 🔵 Currently learning and improving
 
