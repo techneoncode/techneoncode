@@ -21,7 +21,7 @@
 ```yaml
 role: Independent Developer
 location: Strasbourg, France
-background: EPITECH — Software Engineering
+age: 18
 coding_since: 2018
 focus:
   - API design & reverse engineering
@@ -71,14 +71,3 @@ C · C++ · C# · Bash scripting · .NET
 </p>
 
 ---
-
-### 📫 Get in Touch
-
-<p align="center">
-  <a href="https://github.com/techneoncode">
-    <img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white" alt="GitHub">
-  </a>
-  <a href="https://discord.com/users/526908214823092225">
-    <img src="https://img.shields.io/badge/Discord-@techneon-5865F2?style=flat&logo=discord&logoColor=white" alt="Discord">
-  </a>
-</p>
