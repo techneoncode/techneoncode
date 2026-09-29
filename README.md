@@ -24,40 +24,15 @@ location: Strasbourg, France
 age: 18
 coding_since: 2018
 focus:
-  - API design & reverse engineering
+  - Reverse engineering
   - Automation & bot development
 languages: [French, English]
 ```
 ---
 
-### 🛠️ Core Stack
+<img src="https://skillicons.dev/icons?i=python,java,ts,js" alt="Core stack">
+<img src="https://skillicons.dev/icons?i=c,cpp" alt="Currently learning">
 
-<p align="left">
-  <img src="https://skillicons.dev/icons?i=python,java,ts,js,react,nodejs" alt="Core stack">
-</p>
-
-**Languages & Runtimes:** Python · TypeScript · JavaScript (Node.js) · Java <br/>
-**Frontend:** React <br/>
-**Domains:** REST/gRPC API design, reverse engineering, WebSocket streaming, bot & automation frameworks, FastAPI backends <br/>
-
-### 📡 Exploring
-
-<p align="left">
-  <img src="https://skillicons.dev/icons?i=c,cpp,cs,bash,dotnet" alt="Currently learning">
-</p>
-
-C · C++ · C# · Bash scripting · .NET
-
----
-
-### 🚀 What I Work On
-
-| Area | Description |
-|---|---|
-| **API Infrastructure** | Building and maintaining signature/session servers and gateways for large-scale API access |
-| **Automation Tooling** | Bots and clients for real-time data streams and platform automation |
-
----
 
 ### 📊 GitHub Stats
 
